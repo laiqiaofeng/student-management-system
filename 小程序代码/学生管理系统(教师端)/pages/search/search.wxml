@@ -1,0 +1,48 @@
+<!-- pages/search/search.wxml -->
+<!-- <text>pages/search/search.wxml</text> -->
+<view class="contaienr" hover-class="none" hover-stop-propagation="false">
+    <cu-custom bgColor="bg-gradual-pink" isBack="{{false}}" isCustom="{{true}}" gbColor="bg-black">
+        <!-- <view slot="backText">返回</view> -->
+        <view slot="content">搜索学生</view>
+    </cu-custom>
+    <view class="search-content" hover-class="none" hover-stop-propagation="false">
+        <form class="margin-top" bindsubmit="onSubmit">
+            <view class="cu-form-group margin-top">
+                <view class="title">搜索信息:</view>
+                <input placeholder="输入姓名或学号或班级" name="searchInfo"></input>
+                <button form-type="submit" class="cu-btn radius bg-green">搜索</button>
+            </view>
+        </form>
+        <scroll-view class="student-listItem" scroll-x="{{false}}" scroll-y="{{true}}">
+                <view wx:for="{{studentList}}" wx:key="item.number" 
+                      class="studentInfo animation-slide-left" 
+                      hover-class="none"
+                      style="animation-delay: {{index * 0.1 + 's'}}">
+                    <view >{{item.name}}</view>
+                    <image class="sex-icon" src="{{item.sex == 'female' ? '../../asset/female.png' : '../../asset/male.png'}}">
+                        
+                    </image>
+                    <view class="" hover-class="none" hover-stop-propagation="false">
+                        {{item.number}}
+                    </view>
+                    <image class="cu-avatar round img" src="{{item.headImg ? item.headImg : '../../asset/defaultHeadImg.png'}}">
+                        
+                    </image>
+                    <button class="cu-btn bg-black" bind:tap="gotoDetail" data-number="{{item.number}}">详情</button>
+                </view>
+        </scroll-view>
+    </view>
+</view>
+
+<!-- 输入工号模态框 -->
+<view class="cu-modal {{modalName=='JobNumber'?'show':''}}">
+  <view class="cu-dialog" >
+      <form class="Input-wra" bindsubmit="verifyJobNumber">
+          <input type="number" id="inp" bindblur="onBlur" name="jobNumber"/>
+          <view class="btns">
+              <button class="cu-btn bg-green shadow" form-type="submit">验证</button>
+              <button class="cu-btn bg-green shadow" form-type="reset" bindtap="hideModal">取消</button>
+          </view>
+      </form>
+  </view>
+</view>

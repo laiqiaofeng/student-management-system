@@ -1,0 +1,42 @@
+/* pages/verify/verify.wxss */
+
+page {
+    background: linear-gradient(to bottom right, #ec008c, #6789b6)
+}
+.verify {
+    width: 100%;
+    height: 100%;
+    margin: 200rpx auto;
+}
+
+.verify form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* background: red; */
+    width: 100%;
+    height: 500rpx;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.verify form input {
+    padding: 0 30rpx;
+    width: 540rpx;
+    background: #fff;
+    height: 80rpx;
+    font-size: 40rpx;
+    margin: 40rpx auto;
+    /* border: 1px solid #ccc; */
+    border-radius: 40rpx;
+    /* text-indent: 40rpx; */
+}
+.btns{
+    margin-top: 100rpx;
+    width: 700rpx;
+    display: flex;
+    justify-content: space-around;
+}
+.cu-btn {
+    width: 200rpx !important;
+}

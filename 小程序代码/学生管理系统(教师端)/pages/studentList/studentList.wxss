@@ -1,0 +1,173 @@
+/* pages/studentList/studentList.wxss */
+
+page {
+    overflow: hidden;
+}
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* padding: 80rpx 10rpx 0; */
+}
+.list-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.list-type {
+    width: 600rpx;
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+    font-size: 40rpx;
+    color: #fff;
+    padding: 0 40rpx;
+    justify-content: space-between;
+}
+.list-type view {
+    border-radius: 10rpx;
+}
+
+
+.student-list {
+    width: 700rpx;
+    height: calc(100% - 80rpx);
+}
+
+.student-list > scroll-view {
+    height: 100%;
+    width: 100%;
+    /* background: red; */
+    display: flex;
+}
+.student-listItem {
+    flex-direction: column;
+    align-items: center;
+}
+.student-list > .student-listItem  .studentInfo {
+    width: 100%;
+    height: 160rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    border-bottom: 1px solid #ccc;
+
+}
+
+.student-listItem .studentInfo .img {
+    width: 80rpx;
+    height: 80rpx;
+}
+.student-listItem .sex-icon {
+    width: 40rpx;
+    height: 40rpx;
+} 
+
+.student-card {
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+.student-card .studentInfo {
+    position: relative;
+    width: 40%;
+    height: 280rpx;
+    border-radius: 20rpx;
+    margin: 40rpx 5%; 
+    color: #fff;
+    /* display: inline-block; */
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.student-card .studentInfo .img {
+    width: 100rpx;
+    height: 100rpx;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10rpx;
+}
+
+.student-card .studentInfo .sex-icon {
+    position: absolute;
+    left: 50%;
+    transform: translate(10px, 15px);
+    width: 40rpx;
+    height: 40rpx;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.student-card .studentInfo .sex-icon image {
+    width: 60%;
+    height: 60%;
+}
+
+.student-card .studentInfo .name {
+    margin-top: 80rpx;
+    margin-bottom: 20rpx;
+}
+
+.student-card .studentInfo .number {
+    margin-bottom: 30rpx;
+}
+
+.student-card .studentInfo .btns {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.addStudent , .searchStudent{
+    position: absolute;
+    width: 100rpx;
+    height: 100rpx;
+    font-size: 80rpx;
+    border-radius: 50%;
+    top: 80%;
+    z-index: 100;
+    /* box-shadow: 10rpx 10rpx 10rpx  #ccc !important; */
+}
+
+.addStudent {
+    right: 20rpx;
+}
+.searchStudent {
+    left: 30rpx;
+}
+.Input-wra {
+    box-sizing: border-box;
+    padding: 30rpx;
+}
+.Input-wra #inp {
+    display: inline-block;
+    width: 90%;
+    height: 80rpx;
+    text-indent: 2rem;
+    line-height: 80rpx;
+    border-bottom: 1px solid #666;
+    font-size: 40rpx;
+    border-radius: 10rpx;
+}
+.Input-wra .btns {
+    width: 100%;
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

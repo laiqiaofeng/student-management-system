@@ -1,0 +1,21 @@
+<!--pages/verify/verify.wxml-->
+<!-- <text>pages/verify/verify.wxml</text> -->
+
+
+
+<view class="container" hover-class="none" hover-stop-propagation="false">
+    <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+        <view slot="backText">返回</view>
+        <view slot="content">管理员身份验证</view>
+    </cu-custom>
+    <view class="verify" hover-class="none" hover-stop-propagation="false">
+        <form class="" report-submit="false" bindsubmit="fromSubmit" bindreset="">
+            <input type="text" placeholder="请输入教师名" name='name'/>
+            <input type="number" placeholder="教师编号" name='jobNumber'/>
+            <view class="btns" hover-class="none" hover-stop-propagation="false">
+                <button class="cu-btn bg-green lg round shadow" form-type="submit" bind:tap="oSubmit">验证</button>
+                <button class="cu-btn bg-orange lg round shadow" form-type="reset">重置</button>
+            </view>
+        </form>
+    </view>
+</view>

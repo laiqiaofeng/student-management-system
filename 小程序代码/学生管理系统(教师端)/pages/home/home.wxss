@@ -1,0 +1,28 @@
+/* pages/home/home.wxss */
+
+page {
+    background: linear-gradient(to bottom right, #ec008c, #6789b6)
+}
+
+
+.container {
+    padding: 100rpx 0rpx 0;
+}
+
+.grandList {
+    width: 700rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grand {
+    margin-top: 60rpx;
+    width: 400rpx;
+    height: 80rpx;
+    text-align: center;
+    line-height: 80rpx;
+    font-size: 40rpx;
+    color: #fff;
+
+}

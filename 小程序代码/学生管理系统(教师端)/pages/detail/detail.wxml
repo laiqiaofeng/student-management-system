@@ -1,0 +1,114 @@
+<!-- pages/detail/detail.wxml -->
+<!-- <text>pages/detail/detail.wxml</text> -->
+<view class="{{drawerShow ? 'container showContainer' : 'container'}}" hover-class="none" hover-stop-propagation="false"
+      style="left:{{drawerShow ? '80%' : 0}}">
+    <cu-custom bgColor="bg-gradual-pink" isBack="{{false}}" isCustom="{{true}}" gbColor="bg-black" bgImage="../../asset/msk.jpg">
+        <!-- <view slot="backText">返回</view> -->
+        <view slot="content">学生详细信息</view>
+    </cu-custom>
+    <view class="detail-content" hover-class="none" hover-stop-propagation="false">
+        <image class="bg" src="../../asset/msk.jpg" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+    </view>
+    <view class="mask" hover-class="none" hover-stop-propagation="false"></view>
+    <image class="headImg shadow" src="{{studentInfo.headImg ? studentInfo.headImg : '../../asset/defaultHeadImg.png'}}"  bindtap="showModal" data-target="Image"></image>
+    
+    <view class="user bg-black shadow" hover-class="none" hover-stop-propagation="false">
+        <view>{{studentInfo.name}}</view>
+        <image src="{{studentInfo.sex === '男' ? '../../asset/male.png' : '../../asset/female.png'}}" />
+    </view>
+    <view class="bg-gray shadow cu-btn score-btn" bind:tap="onShowDrawer">各科成绩</view>
+    <view class="detail cu-list" hover-class="none" hover-stop-propagation="false">
+        <view class="cu-item">
+            <view >年龄</view>
+            <view >{{studentInfo.age}}</view>
+        </view>
+        <view class="cu-item">
+            <view >出生时间</view>
+            <view >{{studentInfo.dateOfBirth}}</view>
+        </view>
+        <view class="cu-item">
+            <view >奖项</view>
+            <view class="moreMsg" data-target="MoreMsg_A"  bindtap="showModal">
+                {{studentInfo.award[0]}}
+                <view class="cuIcon-right"></view>
+            </view>
+        </view>
+         <view class="cu-item">
+            <view >政治面貌</view>
+            <view >
+                {{studentInfo.politicsStatus}}
+            </view>
+        </view>
+         <view class="cu-item">
+            <view >证书</view>
+            <view class="moreMsg" data-target="MoreMsg_C" bindtap="showModal">
+                {{studentInfo.ccie[0]}}
+                <view class="cuIcon-right"></view>
+            </view>
+        </view>
+    </view>
+</view>
+<scroll-view scroll-y class="drawer bg-gray {{drawerShow ? 'showDrawer' : ''}}">
+    <view class="score bg-black shadow {{drawerShow ? 'animation-slide-right' : ''}}"
+          wx:for="{{studentInfo.score}}" wx:key="item.course"
+          style="animation-delay:{{index * 0.1 + 's'}}">
+        <view class="course">{{item.course}}</view>
+        <view >{{item.score == -1 ? '无' : item.score}}</view>
+        <button class="cu-btn shadow {{item.score == -1 ? 'bg-green' : 'bg-red'}}" 
+                data-target="AlterScore" 
+                bind:tap="onUpdateCourse"
+                data-course="{{item.course}}">{{item.score == -1 ? '添加' : '修改'}}</button>
+    </view>
+
+</scroll-view>
+
+<view class="drawer-mask" bind:tap="stopShowDrawer" wx:if="{{drawerShow}}">
+    
+</view>
+
+
+<!-- 头像模态框 -->
+<view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="bg-img" style="background-image: url('{{studentInfo.headImg ? studentInfo.headImg : '../../asset/defaultHeadImg.png'}}');height:200px;">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub  solid-left" bindtap="hideModal">关闭</view>
+    </view>
+  </view>
+</view>
+
+
+
+<!-- 输入成绩模态框 -->
+<view class="cu-modal {{(modalName=='AddScore' || modalName=='AlterScore')?'show':''}}">
+  <view class="cu-dialog" >
+      <form class="scoreInput-wra">
+          <input type="number" id="inp" bindblur="onBlur"/>
+          <view class="btns">
+              <button class="cu-btn bg-green shadow" form-type="submit" bindtap="{{modalName=='AlterScore' ? 'onModifiedGrades' : 'hideModal'}}">确定</button>
+              <button class="cu-btn bg-green shadow" form-type="reset" bindtap="hideModal">取消</button>
+          </view>
+      </form>
+  </view>
+</view>
+
+
+
+<view class="cu-modal {{modalName=='MoreMsg_A'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog">
+    <view wx:for="{{studentInfo.award}}" wx:key="*this" class="msgs">{{item}}</view>
+  </view>
+</view>
+
+
+<view class="cu-modal {{modalName=='MoreMsg_C'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog">
+    <view wx:for="{{studentInfo.ccie}}" wx:key="*this" class="msgs">{{item}}</view>
+  </view>
+</view>

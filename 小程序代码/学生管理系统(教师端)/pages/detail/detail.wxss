@@ -1,0 +1,196 @@
+/* pages/detail/detail.wxss */
+
+page {
+    background: linear-gradient(to right bottom, #9000ff, #5e00ff);
+    overflow: hidden;
+}
+.container {
+    position: relative;
+    width: 750rpx;
+    height: 1650rpx;
+    background: #fff;
+    
+    transition: transform .3s linear, border-radius .3s linear, left .3s linear, top .3s linear;
+}
+.bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 750rpx;
+    height: 600rpx;
+}
+
+.mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 750%;
+    height: 600rpx;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(255, 255, 255, 1) 70%);
+}
+
+.headImg {
+    position: absolute;
+    width: 300rpx;
+    height: 300rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 200rpx;
+}
+.user {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 520rpx;
+    color: #fff;
+    font-size: 40rpx;
+    box-sizing: border-box;
+    border-radius: 20rpx;
+    padding: 10rpx 30rpx;
+    width: 60%;
+    height: 80rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user image {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.score-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 620rpx;
+    width: 80%;
+    height: 80rpx;
+    font-size: 40rpx;
+    line-height: 80rpx;
+    text-align: center;
+    margin-bottom: 30rpx;
+    border-radius: 20rpx;
+}
+
+
+
+.detail {
+    /* position: relative; */
+    /* top: 500rpx; */
+    /* left: 0; */
+    margin-top: 720rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100rpx;
+   
+}
+
+.detail > view {
+    display: flex;
+    align-items: center;
+    min-height: 80%;
+    width: 80%;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;   
+}
+
+.moreMsg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.drawer {
+    position: absolute;
+    z-index: 100;
+    left: -100%;
+    top: 0;
+    width: 500rpx;
+    height: 1400rpx;
+    box-sizing: border-box;
+    padding: 20rpx;
+    border-radius: 20rpx;
+    transform: rotateY(-90deg);
+    transition: transform .3s linear, border-radius .3s linear, left .3s linear, top .3s linear;
+}
+
+.showDrawer {
+    transform: rotateY(0deg);
+    left: 80rpx;
+    top: 100rpx;
+}
+.showContainer {
+    transform: scale(.8, .8);
+    border-radius: 20rpx;
+    overflow: hidden;
+    left: 80%;
+    top: 5%;
+}
+
+
+.drawer-mask {
+    width: 750rpx;
+    height: 1650rpx;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.score {
+    width: 100%;
+    height: 120rpx;
+    font-size: 40rpx;
+    display: flex;
+    box-sizing: border-box;
+    padding: 10rpx 60rpx;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20rpx;
+    margin-bottom: 20rpx;
+}
+.score > view{
+    border-radius: 20rpx;
+    max-width: 140rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.course  {
+    font-size: 30rpx;
+}
+
+
+.scoreInput-wra {
+    width: 60%;
+    height: 200rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0rpx auto;
+    justify-content: space-around;
+} 
+
+.scoreInput-wra #inp {
+    display: inline-block;
+    width: 90%;
+    height: 80rpx;
+    text-indent: 2rem;
+    line-height: 80rpx;
+    border-bottom: 1px solid #666;
+    font-size: 40rpx;
+    border-radius: 10rpx;
+}
+.scoreInput-wra .btns {
+    width: 100%;
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.msgs {
+    padding: 20rpx;
+}

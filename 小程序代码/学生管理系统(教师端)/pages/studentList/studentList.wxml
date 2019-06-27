@@ -1,0 +1,87 @@
+<!--pages/studentList/studentList.wxml-->
+<!-- <text>pages/studentList/studentList.wxml</text> -->
+
+
+<view class="container" hover-class="none" hover-stop-propagation="false">
+    <cu-custom bgColor="bg-gradual-pink" isBack="{{false}}" isCustom="{{true}}">
+        <view slot="backText">返回</view>
+        <view slot="content">学生列表</view>
+    </cu-custom>
+    <view class="list-content" hover-class="none" hover-stop-propagation="false">
+        <view class="list-type">
+            <view class="student-card cu-btn {{tap_card ? 'animation-shake bg-green' : 'bg-blue'}}" bind:tap="onTap_card">卡片</view>  
+            <view class="student-listItem cu-btn {{tap_listItem ? 'animation-shake bg-green' : 'bg-blue'}}" bind:tap="onTap_listItem">列表</view>  
+        </view>
+        <view class="student-list" hover-class="none" hover-stop-propagation="false">
+            <scroll-view class="student-card" scroll-x="{{false}}" scroll-y="{{true}}" wx:if="{{tap_card}}">
+                <view class="studentInfo bg-black shadow {{index % 2 ? 'animation-slide-right' : 'animation-slide-left'  }}"
+                      wx:for="{{studentList}}" wx:key="item.number"
+                      style="animation-delay: {{delay(index) + 's'}}">
+                    <image class="img" src="{{item.headImg ? item.headImg : '../../asset/defaultHeadImg.png'}}" >
+                        
+                    </image>
+                    <view class="sex-icon" hover-class="none" hover-stop-propagation="false">
+                        <image src="{{item.sex == 'female' ? '../../asset/female.png' : '../../asset/male.png'}}" >
+                        </image>
+                    </view>
+                    <view class="name">{{item.name}}</view>
+                    <view class="number">{{item.number}}</view>
+                    <view class="btns">
+                        <button class="cu-btn bg-gray" bind:tap="gotoDetail" data-number="{{item.number}}">详情</button>
+                        <button class="cu-btn bg-red" bind:tap="onEdit" data-number="{{item.number}}"  bind:tap="onUpdateNumber" data-target="JobNumber" data-number="{{item.number}}">删除</button>
+                    </view>
+                </view>
+            </scroll-view>
+            <scroll-view class="student-listItem" scroll-x="{{false}}" scroll-y="{{true}}" wx:else>
+                <view wx:for="{{studentList}}" wx:key="item.number" 
+                      class="studentInfo animation-slide-left" 
+                      hover-class="none"
+                      style="animation-delay: {{index * 0.1 + 's'}}">
+                    <view >{{item.name}}</view>
+                    <image class="sex-icon" src="{{item.sex == 'female' ? '../../asset/female.png' : '../../asset/male.png'}}">
+                        
+                    </image>
+                    <view class="" hover-class="none" hover-stop-propagation="false">
+                        {{item.number}}
+                    </view>
+                    <image class="cu-avatar round img" src="{{item.headImg ? item.headImg : '../../asset/defaultHeadImg.png'}}">
+                        
+                    </image>
+                    <button class="cu-btn bg-black" bind:tap="gotoDetail" data-number="{{item.number}}">详情</button>
+                    <button class="cu-btn bg-red" bind:tap="onEdit" data-number="{{item.number}}" bind:tap="onUpdateNumber" data-target="JobNumber" data-number="{{item.number}}">删除</button>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+
+    <view class="addStudent cu-btn bg-white cuIcon-add  shadow" bind:tap="gotoAddStudent">
+        
+    </view>
+
+    <view class="searchStudent cu-btn bg-white cuIcon-search  shadow" bind:tap="gotoSearch">
+        
+    </view>
+</view>
+
+
+<!-- 输入工号模态框 -->
+<view class="cu-modal {{modalName=='JobNumber'?'show':''}}">
+  <view class="cu-dialog" >
+      <form class="Input-wra" bindsubmit="verifyJobNumber">
+          <input type="number" id="inp" bindblur="onBlur" name="jobNumber" placeholder="请输入工号"/>
+          <view class="btns">
+              <button class="cu-btn bg-green shadow" form-type="submit">验证</button>
+              <button class="cu-btn bg-green shadow" form-type="reset" bindtap="hideModal">取消</button>
+          </view>
+      </form>
+  </view>
+</view>
+
+
+<wxs module="delay">
+    function delay (index) {
+        return Math.floor(index / 2) * 0.1;
+    }
+
+    module.exports = delay;
+</wxs>

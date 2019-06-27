@@ -1,0 +1,95 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.2",
+	"appid": "wx1d2477a40a08fa90",
+	"projectname": "%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F",
+	"cloudfunctionTemplateRoot": "",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "管理员身份验证",
+					"pathName": "pages/verify/verify",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "班级列表",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "学生列表",
+					"pathName": "pages/studentList/studentList",
+					"query": "grandNumber=1630341",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "学生详细信息",
+					"pathName": "pages/detail/detail",
+					"query": "grandNumber=1630341&number=2",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "编辑",
+					"pathName": "pages/editStudent/editStudent",
+					"query": "number=20163034119",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "添加学生",
+					"pathName": "pages/addStudent/addStudent",
+					"query": "grandNumber=1630341",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "搜索学生",
+					"pathName": "pages/search/search",
+					"query": "grandNumber=1630341",
+					"scene": null
+				}
+			]
+		}
+	}
+}

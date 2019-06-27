@@ -1,0 +1,54 @@
+/* pages/search/search.wxss */
+
+
+scroll-view {
+    height: 100%;
+    width: 100%;
+    /* background: red; */
+    display: flex;
+}
+.student-listItem {
+    flex-direction: column;
+    align-items: center;
+}
+.student-listItem  .studentInfo {
+    width: 100%;
+    height: 160rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    border-bottom: 1px solid #ccc;
+
+}
+
+.student-listItem .studentInfo .img {
+    width: 80rpx;
+    height: 80rpx;
+}
+.student-listItem .sex-icon {
+    width: 40rpx;
+    height: 40rpx;
+} 
+.Input-wra {
+    box-sizing: border-box;
+    padding: 30rpx;
+}
+.Input-wra #inp {
+    display: inline-block;
+    width: 90%;
+    height: 80rpx;
+    text-indent: 2rem;
+    line-height: 80rpx;
+    border-bottom: 1px solid #666;
+    font-size: 40rpx;
+    border-radius: 10rpx;
+}
+.Input-wra .btns {
+    width: 100%;
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

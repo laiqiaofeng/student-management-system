@@ -1,0 +1,13 @@
+/* pages/addStudent/addStudent.wxss */
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form > view {
+    display: inline-block;
+    width: 100% !important;
+}

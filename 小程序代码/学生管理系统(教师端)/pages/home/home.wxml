@@ -1,0 +1,18 @@
+<!--pages/home/home.wxml-->
+<!-- <text>pages/home/home.wxml</text> -->
+
+
+<view class="container" hover-class="none" hover-stop-propagation="false">
+    <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}" isCustom="{{false}}">
+        <view slot="backText">返回</view>
+        <view slot="content">班级列表</view>
+    </cu-custom>
+
+    <view class="grandList" hover-class="none" hover-stop-propagation="false">
+        <view   class="grand animation-slide-bottom bg-purple round shadow"
+                wx:for="{{grandList}}" wx:key="*this"
+                bind:tap="gotoStudentList"
+                data-grandNumber = "{{item}}"
+                style="animation-delay:{{index * .1 + 's'}} ">{{item}}</view>
+    </view>
+</view>
